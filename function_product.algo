@@ -1,0 +1,30 @@
+FUNCTION dot_product(vector1:ARRAY_OF INTEGER,vector2:ARRAY_OF INTEGER) : INTEGER
+VAR
+    ps,i:INTEGER:=0;
+BEGIN
+    FOR i FROM 0 TO length(vector1)-1 STEP 1  DO
+    ps:=ps+(vector1[i]*vector2[i])
+    END_FOR
+    RETURN ps ;
+END
+ALGORITHM Dot product
+VAR
+    n:INTEGER;
+    vectors: ARRAY_OF INTEGER[n];
+    vector:ARRAY_OF INTEGER[3];
+    i,j:INTEGER:=0;
+BEGIN
+    Write("please write the number of vectors")
+    Read(n)
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Read(vector)
+        vectors[i]=vector;
+    END_FOR
+    FOR i FROM 0 TO length(vectors)-1 STEP 1  DO
+    FOR j FROM i+1 TO length(vectors)-1 STEP 1  DO
+        IF (dot_product(vectors[i],vectors[j])==0) THEN
+            Write("the two vectors",vectors[i],"and",vectors[j],"are orthogonal")
+        END_IF
+    END_FOR
+    END_FOR
+END
